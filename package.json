@@ -1,0 +1,36 @@
+{
+  "name": "crudster",
+  "version": "1.0.0",
+  "description": "Create CRUD apps fast with Crudster. Harness the power of Express, Mongoose, and Mongo Atlas to create CRUD apps faster than ever in Node.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoshinator/crudster.git"
+  },
+  "keywords": [
+    "crud",
+    "node",
+    "framework",
+    "generator",
+    "skeleton",
+    "scaffold"
+  ],
+  "author": "Yoan Ante",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yoshinator/crudster/issues"
+  },
+  "homepage": "https://github.com/yoshinator/crudster#readme",
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "inquirer": "^6.4.1"
+  },
+  "bin": {
+    "crudster": "./index.js"
+  }
+}
