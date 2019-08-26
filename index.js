@@ -24,6 +24,6 @@ if (process.argv[2]) {
             FRAMER.buildApp()
             FRAMER.buildMongo()
             FRAMER.buildModel()
-            FRAMER.runThings()
+            FRAMER.bootBuild()
         });
     }

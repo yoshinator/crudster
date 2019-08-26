@@ -1,7 +1,6 @@
 const fs = require('fs');
-const { spawn } = require('child_process');
 
-class Model {
+class ModelBuilder {
     constructor(name){
         this.name = name
     }

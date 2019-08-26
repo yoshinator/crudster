@@ -1,4 +1,5 @@
 const fs = require('fs')
+const ModelBuilder = require('./ModelBuilder')
 const { spawn } = require('child_process');
 
 class Framer {
@@ -21,6 +22,7 @@ class Framer {
     }
 
     buildModel = () => {
+        const ModelBuilder = new ModelBuilder(this.model)
         fs.mkdir(this.appName + "/Models", { recursive: true }, err => {
             if (err) throw err;
         });
@@ -32,11 +34,9 @@ class Framer {
         })
     }
     
-    runThings = function () {
-
+    bootBuild = function () {
         this.packageJson()
         this.nodeModulues()
-
     }
 
     packageJson = () => {
@@ -68,6 +68,7 @@ class Framer {
             console.log(`child process exited with code ${code}`);
         });
     }
+
 }
 
 module.exports = Framer;
