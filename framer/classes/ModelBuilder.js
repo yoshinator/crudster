@@ -14,4 +14,4 @@ class ModelBuilder {
     
 }
 
-module.exports = Model;
+module.exports = ModelBuilder;

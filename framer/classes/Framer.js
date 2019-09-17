@@ -1,17 +1,23 @@
 const fs = require('fs')
-const ModelBuilder = require('./ModelBuilder')
+const index = require('../../Templates/index')
 const { spawn } = require('child_process');
 
 class Framer {
     constructor (appName, MongoURI, model){
     this.appName = appName.split(" ").join("_")
     this.MongoURI = MongoURI
-    this.model = model
+    this.model = model.charAt(0).toUpperCase() + model.slice(1)
     }
 
     buildApp = () => {
         fs.mkdir(this.appName, { recursive: true }, err => {
             if (err) throw err;
+        });
+        fs.appendFile(`route/${this.model.toLowerCase()}.js`, index(this.model), (err) => {
+            if (err) {
+                console.log("ERROR: "+err);
+                throw err;
+            } else console.log('The "data to append" was appended to file!');
         });
     }
 
@@ -22,7 +28,6 @@ class Framer {
     }
 
     buildModel = () => {
-        const ModelBuilder = new ModelBuilder(this.model)
         fs.mkdir(this.appName + "/Models", { recursive: true }, err => {
             if (err) throw err;
         });
@@ -36,7 +41,7 @@ class Framer {
     
     bootBuild = function () {
         this.packageJson()
-        this.nodeModulues()
+        this.nodeModules()
     }
 
     packageJson = () => {
